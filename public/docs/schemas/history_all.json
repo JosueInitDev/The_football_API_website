@@ -1,0 +1,728 @@
+{
+    "type": "array",
+    "items": [
+        {
+            "type": "object",
+            "properties": {
+                "league_key": {
+                    "type": "string",
+                    "example": "fake_league"
+                },
+                "error": {
+                    "type": "string",
+                    "example": "League history not found"
+                }
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "example": 20
+                },
+                "league_key": {
+                    "type": "string",
+                    "example": "premier_league"
+                },
+                "league": {
+                    "type": "string",
+                    "example": "Premier League"
+                },
+                "league_logo": {
+                    "type": "string",
+                    "example": "abcdef.png"
+                },
+                "country": {
+                    "type": "string",
+                    "example": "England"
+                },
+                "country_logo": {
+                    "type": "string",
+                    "example": "abcdef.png"
+                },
+                "color_primary": {
+                    "type": "string",
+                    "example": "#FFFFFF"
+                },
+                "color_secondary": {
+                    "type": "string",
+                    "example": "#FFFFFF"
+                },
+                "matches": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "event_key": {
+                                "type": "string",
+                                "example": "e007244b7d96"
+                            },
+                            "event_home_team": {
+                                "type": "string",
+                                "example": "West Ham"
+                            },
+                            "home_team_logo": {
+                                "type": "string",
+                                "example": "abcdef.png"
+                            },
+                            "event_away_team": {
+                                "type": "string",
+                                "example": "Manchester Utd"
+                            },
+                            "away_team_logo": {
+                                "type": "string",
+                                "example": "abcdef.png"
+                            },
+                            "event_date": {
+                                "type": "string",
+                                "format": "date",
+                                "example": "2025-12-04"
+                            },
+                            "event_time": {
+                                "type": "string",
+                                "format": "time",
+                                "example": "21:00"
+                            },
+                            "event_status": {
+                                "type": "string",
+                                "example": "event_status"
+                            },
+                            "event_information": {
+                                "type": "object",
+                                "properties": {
+                                    "referee": {
+                                        "type": "string",
+                                        "example": "Name"
+                                    },
+                                    "venue": {
+                                        "type": "string",
+                                        "example": "Old Trafford  (Manchester)"
+                                    },
+                                    "capacity": {
+                                        "type": "string",
+                                        "format": "integer",
+                                        "example": 75635
+                                    }
+                                }
+                            },
+                            "head_to_head": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "date": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "2025-07-27"
+                                        },
+                                        "league": {
+                                            "type": "string",
+                                            "example": "Premier League Summer Series (World)"
+                                        },
+                                        "home_team": {
+                                            "type": "string",
+                                            "example": "Manchester Utd"
+                                        },
+                                        "home_logo": {
+                                            "type": "string",
+                                            "example": ""
+                                        },
+                                        "home_score": {
+                                            "type": "string",
+                                            "example": "2"
+                                        },
+                                        "away_team": {
+                                            "type": "string",
+                                            "example": "West Ham"
+                                        },
+                                        "away_logo": {
+                                            "type": "string",
+                                            "example": "abcdef.png"
+                                        },
+                                        "away_score": {
+                                            "type": "string",
+                                            "example": "1"
+                                        }
+                                    }
+                                }
+                            },
+                            "markets": {
+                                "type": "object",
+                                "properties": {
+                                    "soccer.match_odds": {
+                                        "type": "object",
+                                        "properties": {
+                                            "submarkets": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "period=ft": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "sequence": {
+                                                                "type": "string",
+                                                                "example": "3122"
+                                                            },
+                                                            "selections": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outcome": {
+                                                                            "type": "string",
+                                                                            "example": "home"
+                                                                        },
+                                                                        "params": {
+                                                                            "type": "string",
+                                                                            "example": ""
+                                                                        },
+                                                                        "price": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 1.476
+                                                                        },
+                                                                        "minStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.1
+                                                                        },
+                                                                        "maxStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 6423.23164
+                                                                        },
+                                                                        "probability": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.652
+                                                                        },
+                                                                        "status": {
+                                                                            "type": "string",
+                                                                            "example": "SELECTION_ENABLED"
+                                                                        },
+                                                                        "side": {
+                                                                            "type": "string",
+                                                                            "example": "BACK"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "soccer.asian_handicap": {
+                                        "type": "object",
+                                        "properties": {
+                                            "submarkets": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "period=ft": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "sequence": {
+                                                                "type": "string",
+                                                                "example": "3122"
+                                                            },
+                                                            "selections": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outcome": {
+                                                                            "type": "string",
+                                                                            "example": "home"
+                                                                        },
+                                                                        "params": {
+                                                                            "type": "string",
+                                                                            "example": "handicap=-1.25"
+                                                                        },
+                                                                        "price": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 1.476
+                                                                        },
+                                                                        "minStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.1
+                                                                        },
+                                                                        "maxStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 6423.23164
+                                                                        },
+                                                                        "probability": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.652
+                                                                        },
+                                                                        "status": {
+                                                                            "type": "string",
+                                                                            "example": "SELECTION_ENABLED"
+                                                                        },
+                                                                        "side": {
+                                                                            "type": "string",
+                                                                            "example": "BACK"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "soccer.booking_match_odds": {
+                                        "type": "object",
+                                        "properties": {
+                                            "submarkets": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "period=ft_yellow_cards&period=ft_red_cards": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "sequence": {
+                                                                "type": "string",
+                                                                "example": "3122"
+                                                            },
+                                                            "selections": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outcome": {
+                                                                            "type": "string",
+                                                                            "example": "home"
+                                                                        },
+                                                                        "params": {
+                                                                            "type": "string",
+                                                                            "example": ""
+                                                                        },
+                                                                        "price": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 1.476
+                                                                        },
+                                                                        "minStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.1
+                                                                        },
+                                                                        "maxStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 6423.23164
+                                                                        },
+                                                                        "probability": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.652
+                                                                        },
+                                                                        "status": {
+                                                                            "type": "string",
+                                                                            "example": "SELECTION_ENABLED"
+                                                                        },
+                                                                        "side": {
+                                                                            "type": "string",
+                                                                            "example": "BACK"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "soccer.both_teams_to_score": {
+                                        "type": "object",
+                                        "properties": {
+                                            "submarkets": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "period=ft": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "sequence": {
+                                                                "type": "string",
+                                                                "example": "3122"
+                                                            },
+                                                            "selections": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outcome": {
+                                                                            "type": "string",
+                                                                            "example": "yes"
+                                                                        },
+                                                                        "params": {
+                                                                            "type": "string",
+                                                                            "example": ""
+                                                                        },
+                                                                        "price": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 1.476
+                                                                        },
+                                                                        "minStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.1
+                                                                        },
+                                                                        "maxStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 6423.23164
+                                                                        },
+                                                                        "probability": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.652
+                                                                        },
+                                                                        "status": {
+                                                                            "type": "string",
+                                                                            "example": "SELECTION_ENABLED"
+                                                                        },
+                                                                        "side": {
+                                                                            "type": "string",
+                                                                            "example": "BACK"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "soccer.both_teams_to_score_period_1h": {
+                                        "type": "object",
+                                        "properties": {
+                                            "submarkets": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "period=1h": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "sequence": {
+                                                                "type": "string",
+                                                                "example": "3122"
+                                                            },
+                                                            "selections": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outcome": {
+                                                                            "type": "string",
+                                                                            "example": "yes"
+                                                                        },
+                                                                        "params": {
+                                                                            "type": "string",
+                                                                            "example": ""
+                                                                        },
+                                                                        "price": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 1.476
+                                                                        },
+                                                                        "minStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.1
+                                                                        },
+                                                                        "maxStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 6423.23164
+                                                                        },
+                                                                        "probability": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.652
+                                                                        },
+                                                                        "status": {
+                                                                            "type": "string",
+                                                                            "example": "SELECTION_ENABLED"
+                                                                        },
+                                                                        "side": {
+                                                                            "type": "string",
+                                                                            "example": "BACK"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "soccer.corner_match_odds": {
+                                        "type": "object",
+                                        "properties": {
+                                            "submarkets": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "period=ft_corners": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "sequence": {
+                                                                "type": "string",
+                                                                "example": "3122"
+                                                            },
+                                                            "selections": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outcome": {
+                                                                            "type": "string",
+                                                                            "example": "home"
+                                                                        },
+                                                                        "params": {
+                                                                            "type": "string",
+                                                                            "example": ""
+                                                                        },
+                                                                        "price": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 1.476
+                                                                        },
+                                                                        "minStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.1
+                                                                        },
+                                                                        "maxStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 6423.23164
+                                                                        },
+                                                                        "probability": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.652
+                                                                        },
+                                                                        "status": {
+                                                                            "type": "string",
+                                                                            "example": "SELECTION_ENABLED"
+                                                                        },
+                                                                        "side": {
+                                                                            "type": "string",
+                                                                            "example": "BACK"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "soccer.correct_score": {
+                                        "type": "object",
+                                        "properties": {
+                                            "submarkets": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "period=ft": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "sequence": {
+                                                                "type": "string",
+                                                                "example": "3122"
+                                                            },
+                                                            "selections": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outcome": {
+                                                                            "type": "string",
+                                                                            "example": "score=2:1"
+                                                                        },
+                                                                        "params": {
+                                                                            "type": "string",
+                                                                            "example": ""
+                                                                        },
+                                                                        "price": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 1.476
+                                                                        },
+                                                                        "minStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.1
+                                                                        },
+                                                                        "maxStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 6423.23164
+                                                                        },
+                                                                        "probability": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.652
+                                                                        },
+                                                                        "status": {
+                                                                            "type": "string",
+                                                                            "example": "SELECTION_ENABLED"
+                                                                        },
+                                                                        "side": {
+                                                                            "type": "string",
+                                                                            "example": "BACK"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "soccer.double_chance": {
+                                        "type": "object",
+                                        "properties": {
+                                            "submarkets": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "period=ft": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "sequence": {
+                                                                "type": "string",
+                                                                "example": "3122"
+                                                            },
+                                                            "selections": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outcome": {
+                                                                            "type": "string",
+                                                                            "example": "draw_away"
+                                                                        },
+                                                                        "params": {
+                                                                            "type": "string",
+                                                                            "example": ""
+                                                                        },
+                                                                        "price": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 1.476
+                                                                        },
+                                                                        "minStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.1
+                                                                        },
+                                                                        "maxStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 6423.23164
+                                                                        },
+                                                                        "probability": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.652
+                                                                        },
+                                                                        "status": {
+                                                                            "type": "string",
+                                                                            "example": "SELECTION_ENABLED"
+                                                                        },
+                                                                        "side": {
+                                                                            "type": "string",
+                                                                            "example": "BACK"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "soccer.draw_no_bet": {
+                                        "type": "object",
+                                        "properties": {
+                                            "submarkets": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "period=ft": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "sequence": {
+                                                                "type": "string",
+                                                                "example": "3122"
+                                                            },
+                                                            "selections": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "outcome": {
+                                                                            "type": "string",
+                                                                            "example": "home"
+                                                                        },
+                                                                        "params": {
+                                                                            "type": "string",
+                                                                            "example": ""
+                                                                        },
+                                                                        "price": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 1.476
+                                                                        },
+                                                                        "minStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.1
+                                                                        },
+                                                                        "maxStake": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 6423.23164
+                                                                        },
+                                                                        "probability": {
+                                                                            "type": "string",
+                                                                            "format": "float",
+                                                                            "example": 0.652
+                                                                        },
+                                                                        "status": {
+                                                                            "type": "string",
+                                                                            "example": "SELECTION_ENABLED"
+                                                                        },
+                                                                        "side": {
+                                                                            "type": "string",
+                                                                            "example": "BACK"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

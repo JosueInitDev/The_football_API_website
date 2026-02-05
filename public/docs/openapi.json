@@ -1,0 +1,799 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "The Football API",
+        "version": "1.0.12",
+        "description": "``\nAPI Base url: https://api.the-football-api.com/``\n\n Images fetching is not limited by your plan limits. \n``\nTo get an image, fetch https://api.the-football-api.com/img/[with_image_name.png]``\n \nThe API requires a Bearer token in the Authorization header. To get access to the API, you need to <a href='register' target='_blank'>create an account</a> (free or premium plan). \n\n\n Have a question? Contact me at jose.init.dev@gmail.com",
+        "x-logo": {
+            "url": "/docs/logo.png",
+            "backgroundColor": "#06060F",
+            "altText": "Petstore logo"
+        }
+    },
+    "security": [
+        {
+            "BearerAuth": []
+        }
+    ],
+    "paths": {
+        "/leagues": {
+            "get": {
+                "summary": "Get all available leagues",
+                "description": "Return the available leagues. \n\nNote: This endpoint is not limited by your plan limits, but its hard limit is 500 requests / minute.",
+                "operationId": "get_all_leagues",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema":{
+                                    "$ref": "schemas/leagues.json"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Couldn't load leagues" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Rate limit exceeded" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/fixtures/{league_key}": {
+            "get": {
+                "summary": "Get one league Fixtures",
+                "description": "Return fixtures for a given league.<br><br> <b>Notes:</b><br> <ul><li>event_status: it is a match key and has 3 values <ul><li>Not Started: means the match hasn't started yet</li><li>Live: means the match is being played</li><li>Done: means the match has done playing</li></ul></li> <li>live: This key is available for a match when it is live, so not always present in retured json.</li></ul>",
+                "operationId": "get_one_league_fixtures",
+                "parameters": [
+                    {
+                        "name": "league_key",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "The key of the league (call /leagues to get all leagues). ",
+                            "example": "premier_league"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "YYYY-MM-DD",
+                            "title": "Date from: load fixtures starting from this date.",
+                            "example": "2025-12-04",
+                            "default": "Today"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "YYYY-MM-DD",
+                            "title": "Date max: load fixtures till this date",
+                            "example": "2025-12-11",
+                            "default": "Unlimited"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "integer",
+                            "title": "Limit the number of returned matches",
+                            "default": "50"
+                        }
+                    },
+                    {
+                        "name": "odds",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false,
+                            "title": "Include odds data in the response (ONLY PREMIUM AND HIGHER PLANS)"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/fixtures_league_key.json"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "League 'premier_league' not found" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Rate limit exceeded" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/fixtures/multi/?league_keys={league_key},{league_key}": {
+            "get": {
+                "summary": "Get multiple leagues Fixtures",
+                "description": "Return fixtures for many leagues. You seperate the leagues keys by commas.<br><br> <b>Notes:</b><br> <ul><li>event_status: it is a match key and has 3 values <ul><li>Not Started: means the match hasn't started yet</li><li>Live: means the match is being played</li><li>Done: means the match has done playing</li></ul></li> <li>live: This key is available for a match when it is live, so not always present in retured json.</li></ul>",
+                "operationId": "get_many_leagues_fixtures",
+                "parameters": [
+                    {
+                        "name": "/",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Don't forget to add this leading slash / before adding the query parameters."
+                        }
+                    },
+                    {
+                        "name": "league_keys",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Seperate the league_keys by comma. Get the leagues by calling /leagues",
+                            "example": "premier_league,ligue_1"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "YYYY-MM-DD",
+                            "title": "Date from: load fixtures starting from this date.",
+                            "example": "2025-12-04",
+                            "default": "Today"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "YYYY-MM-DD",
+                            "title": "Date max: load fixtures till this date",
+                            "example": "2025-12-11",
+                            "default": "Unlimited"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "integer",
+                            "title": "Limit the number of returned matches per league (limit=20 means 20 matches per league)",
+                            "default": "20"
+                        }
+                    },
+                    {
+                        "name": "odds",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false,
+                            "title": "Include odds data in the response (ONLY PREMIUM AND HIGHER PLANS)"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/fixtures_multi_league_keys.json"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Not Found" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "type": { "type": "string", "example": "missing" },
+                                                    "loc": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        },
+                                                        "example": ["query", "league_keys"]
+                                                    },
+                                                    "msg": { "type": "string", "example": "msg" },
+                                                    "input": { "type": "integer", "nullebale": true, "example": null }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Rate limit exceeded" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/fixtures/all/": {
+            "get": {
+                "summary": "Get all leagues Fixtures",
+                "description": "Return fixtures for all available leagues.<br><br> <b>Notes:</b><br> <ul><li>event_status: it is a match key and has 3 values <ul><li>Not Started: means the match hasn't started yet</li><li>Live: means the match is being played</li><li>Done: means the match has done playing</li></ul></li> <li>live: This key is available for a match when it is live, so not always present in retured json.</li></ul>",
+                "operationId": "get_all_leagues_fixtures",
+                "parameters": [
+                    {
+                        "name": "/",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Don't forget to add this leading slash / before adding the query parameters."
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "YYYY-MM-DD",
+                            "title": "Date from: load fixtures starting from this date.",
+                            "example": "2025-12-04",
+                            "default": "Today"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "YYYY-MM-DD",
+                            "title": "Date max: load fixtures till this date",
+                            "example": "2025-12-11",
+                            "default": "Unlimited"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "integer",
+                            "title": "Limit the number of returned matches per league (limit=20 means 20 matches per league)",
+                            "default": "20"
+                        }
+                    },
+                    {
+                        "name": "odds",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false,
+                            "title": "Include odds data in the response (ONLY PREMIUM AND HIGHER PLANS)"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/fixtures_all.json"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "code": { "type": "integer", "example": 404 },
+                                        "data": { "type": "string", "example": "null" },
+                                        "message": { "type": "string", "example": "No match found" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Rate limit exceeded" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/lives/league_key": {
+            "get": {
+                "summary": "Get one league lives events",
+                "description": "Return all lives events associated to ONLY ONE league. \n\n Only matches with live events will be returned, the other matches are ignored.",
+                "operationId": "get_one_league_lives",
+                "parameters": [
+                    {
+                        "name": "league_key",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "The key of the league (call /leagues to get all leagues). "
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/lives_league_key.json"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Load Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Couldn't load live events" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Rate limit exceeded" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/lives": {
+            "get": {
+                "summary": "Get all leagues lives events",
+                "description": "Return all lives events associated to all available leagues. \n\n Only matches with live events will be returned, the other matches are ignored.",
+                "operationId": "get_all_leagues_lives",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/lives.json"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Load error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Couldn't load live events" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Rate limit exceeded" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/matches/history/league_key": {
+            "get": {
+                "summary": "Get one league previous matches",
+                "description": "Return the matches done playing, events associated to ONLY ONE league. \n\n Fixtures and live events are ignored.",
+                "operationId": "get_one_league_history",
+                "parameters": [
+                    {
+                        "name": "league_key",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "The key of the league"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "YYYY-MM-DD",
+                            "title": "Date from: load matches starting from this date (think in past).",
+                            "example": "2025-12-04",
+                            "default": "Last month"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "YYYY-MM-DD",
+                            "title": "Date max: load matches till this date (think in past)",
+                            "example": "2026-01-04",
+                            "default": "Today"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "integer",
+                            "title": "Limit the number of returned matches",
+                            "default": "20"
+                        }
+                    },
+                    {
+                        "name": "odds",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false,
+                            "title": "Include odds data in the response (ONLY PREMIUM AND HIGHER PLANS)"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/history_league_key.json"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Couldn't check account rate" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "League history not found" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Rate limit exceeded" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/matches/history?league_keys={league_key},{league_key}": {
+            "get": {
+                "summary": "Get multiple leagues previous matches",
+                "description": "Return the matches done playing, events associated to ALL leagues. \n\n Fixtures and live events are ignored.",
+                "operationId": "get_all_leagues_history",
+                "parameters": [
+                    {
+                        "name": "league_keys",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "title": "Seperate the league_keys by comma. Get the leagues by calling /leagues",
+                            "example": "premier_league,ligue_1"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "YYYY-MM-DD",
+                            "title": "Date from: load matches starting from this date (think in past).",
+                            "example": "2025-12-04",
+                            "default": "Last month"
+                        }
+                    },
+                    {
+                        "name": "to",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "YYYY-MM-DD",
+                            "title": "Date max: load matches till this date (think in past)",
+                            "example": "2026-01-04",
+                            "default": "Today"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "integer",
+                            "title": "Limit the number of returned matches. If you specify 3 leagues and limit by 20, so 20 matches by league will be returned (3*20=60 matches)",
+                            "default": "20"
+                        }
+                    },
+                    {
+                        "name": "odds",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean",
+                            "default": false,
+                            "title": "Include odds data in the response (ONLY PREMIUM AND HIGHER PLANS)"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "schemas/history_all.json"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Couldn't check account rate" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "League history not found" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too Many Requests",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "detail": { "type": "string", "example": "Rate limit exceeded" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "BearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT",
+                "description": "Provide your API token in the Authorization header as 'Bearer <token>'. All endpoints are protected except those explicitly marked as public. Get a token by <a href='register' target='_blank'>creatig a free account</a>."
+            }
+        },
+        "schemas": {
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            }
+        }
+    }
+}

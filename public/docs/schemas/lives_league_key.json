@@ -1,0 +1,651 @@
+{
+    "type": "object",
+    "properties": {
+        "country": {
+            "type": "string",
+            "example": "England"
+        },
+        "country_logo": {
+            "type": "string",
+            "example": "abcdef.png"
+        },
+        "league_key": {
+            "type": "string",
+            "example": "premier_league"
+        },
+        "league": {
+            "type": "string",
+            "example": "Premier League"
+        },
+        "league_logo": {
+            "type": "string",
+            "example": "abcdef.png"
+        },
+        "season": {
+            "type": "string",
+            "example": "2025/2026"
+        },
+        "matches": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "event_key": {
+                        "type": "string",
+                        "example": "1e0c418db7b5"
+                    },
+                    "event_home_team": {
+                        "type": "string",
+                        "example": "Manchester Utd"
+                    },
+                    "home_team_logo": {
+                        "type": "string",
+                        "example": "abcdef.png"
+                    },
+                    "event_away_team": {
+                        "type": "string",
+                        "example": "Manchester City"
+                    },
+                    "away_team_logo": {
+                        "type": "string",
+                        "example": "abcdef.png"
+                    },
+                    "event_date": {
+                        "type": "string",
+                        "example": "2025-12-05"
+                    },
+                    "event_time": {
+                        "type": "string",
+                        "example": "18:00"
+                    },
+                    "event_status": {
+                        "type": "string",
+                        "example": "Live"
+                    },
+                    "event_information": {
+                        "type": "string",
+                        "example": "Note: call fixtures endpoint to get this structure"
+                    },
+                    "head_to_head": {
+                        "type": "string",
+                        "example": "Note: call fixtures endpoint to get this structure"
+                    },
+                    "markets": {
+                        "type": "string",
+                        "example": "all fixtures endpoint to get this structure"
+                    },
+                    "live": {
+                        "type": "object",
+                        "properties": {
+                            "key": {
+                                "type": "integer",
+                                "example": 3721936
+                            },
+                            "score_home": {
+                                "type": "string",
+                                "example": "1"
+                            },
+                            "score_away": {
+                                "type": "string",
+                                "example": "1"
+                            },
+                            "minute": {
+                                "type": "string",
+                                "example": "80'"
+                            },
+                            "start_time": {
+                                "type": "integer",
+                                "example": 1764980232
+                            },
+                            "lineups": {
+                                "type": "object",
+                                "properties": {
+                                    "homeStarters": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "95647"
+                                                },
+                                                "playerId": {
+                                                    "type": "string",
+                                                    "example": "95647"
+                                                },
+                                                "playerNameSlug": {
+                                                    "type": "string",
+                                                    "example": "his-name"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "His Name"
+                                                },
+                                                "shortName": {
+                                                    "type": "string",
+                                                    "example": "H. Name"
+                                                },
+                                                "number": {
+                                                    "type": "integer",
+                                                    "example": 48
+                                                },
+                                                "minOut": {
+                                                    "type": "string",
+                                                    "example": "76'"
+                                                },
+                                                "position": {
+                                                    "type": "string",
+                                                    "example": "DEFENDER"
+                                                },
+                                                "positionId": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "goal": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "type": {
+                                                            "type": "string",
+                                                            "example": "FootballGoal"
+                                                        },
+                                                        "amt": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        }
+                                                    }
+                                                },
+                                                "sub": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string",
+                                                            "example": "17572"
+                                                        },
+                                                        "playerId": {
+                                                            "type": "string",
+                                                            "example": "17572"
+                                                        },
+                                                        "playerNameSlug": {
+                                                            "type": "string",
+                                                            "example": "his-name"
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "His Name"
+                                                        },
+                                                        "shortName": {
+                                                            "type": "string",
+                                                            "example": "H. Name"
+                                                        },
+                                                        "subPlayerId": {
+                                                            "type": "string",
+                                                            "example": "21584"
+                                                        },
+                                                        "subTime": {
+                                                            "type": "string",
+                                                            "example": "76'"
+                                                        },
+                                                        "subType": {
+                                                            "type": "string",
+                                                            "example": "FootballSubOut"
+                                                        },
+                                                        "time": {
+                                                            "type": "integer",
+                                                            "example": 76
+                                                        },
+                                                        "team": {
+                                                            "type": "string",
+                                                            "example": "HOME"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "awayStarters": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "95647"
+                                                },
+                                                "playerId": {
+                                                    "type": "string",
+                                                    "example": "95647"
+                                                },
+                                                "playerNameSlug": {
+                                                    "type": "string",
+                                                    "example": "his-name"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "His Name"
+                                                },
+                                                "shortName": {
+                                                    "type": "string",
+                                                    "example": "H. Name"
+                                                },
+                                                "number": {
+                                                    "type": "integer",
+                                                    "example": 48
+                                                },
+                                                "minOut": {
+                                                    "type": "string",
+                                                    "example": "76'"
+                                                },
+                                                "position": {
+                                                    "type": "string",
+                                                    "example": "DEFENDER"
+                                                },
+                                                "positionId": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "homeSubs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "95647"
+                                                },
+                                                "playerId": {
+                                                    "type": "string",
+                                                    "example": "95647"
+                                                },
+                                                "playerNameSlug": {
+                                                    "type": "string",
+                                                    "example": "his-name"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "His Name"
+                                                },
+                                                "shortName": {
+                                                    "type": "string",
+                                                    "example": "H. Name"
+                                                },
+                                                "number": {
+                                                    "type": "integer",
+                                                    "example": 48
+                                                },
+                                                "minOut": {
+                                                    "type": "string",
+                                                    "example": "76'"
+                                                },
+                                                "position": {
+                                                    "type": "string",
+                                                    "example": "DEFENDER"
+                                                },
+                                                "positionId": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                },
+                                                "sub": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string",
+                                                            "example": "17572"
+                                                        },
+                                                        "playerId": {
+                                                            "type": "string",
+                                                            "example": "17572"
+                                                        },
+                                                        "playerNameSlug": {
+                                                            "type": "string",
+                                                            "example": "his-name"
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "His Name"
+                                                        },
+                                                        "shortName": {
+                                                            "type": "string",
+                                                            "example": "H. Name"
+                                                        },
+                                                        "subPlayerId": {
+                                                            "type": "string",
+                                                            "example": "21584"
+                                                        },
+                                                        "subTime": {
+                                                            "type": "string",
+                                                            "example": "76'"
+                                                        },
+                                                        "subType": {
+                                                            "type": "string",
+                                                            "example": "FootballSubOut"
+                                                        },
+                                                        "time": {
+                                                            "type": "integer",
+                                                            "example": 76
+                                                        },
+                                                        "team": {
+                                                            "type": "string",
+                                                            "example": "HOME"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "awaySubs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "95647"
+                                                },
+                                                "playerId": {
+                                                    "type": "string",
+                                                    "example": "95647"
+                                                },
+                                                "playerNameSlug": {
+                                                    "type": "string",
+                                                    "example": "his-name"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "His Name"
+                                                },
+                                                "shortName": {
+                                                    "type": "string",
+                                                    "example": "H. Name"
+                                                },
+                                                "number": {
+                                                    "type": "integer",
+                                                    "example": 48
+                                                },
+                                                "minOut": {
+                                                    "type": "string",
+                                                    "example": "76'"
+                                                },
+                                                "position": {
+                                                    "type": "string",
+                                                    "example": "DEFENDER"
+                                                },
+                                                "positionId": {
+                                                    "type": "integer",
+                                                    "example": 2
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "homeCoach": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "95647"
+                                                },
+                                                "playerId": {
+                                                    "type": "string",
+                                                    "example": "95647"
+                                                },
+                                                "playerNameSlug": {
+                                                    "type": "string",
+                                                    "example": "his-name"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "His Name"
+                                                },
+                                                "shortName": {
+                                                    "type": "string",
+                                                    "example": "H. Name"
+                                                },
+                                                "minOut": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "position": {
+                                                    "type": "string",
+                                                    "example": "COACH"
+                                                },
+                                                "positionId": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "awayCoach": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string",
+                                                    "example": "95647"
+                                                },
+                                                "playerId": {
+                                                    "type": "string",
+                                                    "example": "95647"
+                                                },
+                                                "playerNameSlug": {
+                                                    "type": "string",
+                                                    "example": "his-name"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "His Name"
+                                                },
+                                                "shortName": {
+                                                    "type": "string",
+                                                    "example": "H. Name"
+                                                },
+                                                "minOut": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "position": {
+                                                    "type": "string",
+                                                    "example": "COACH"
+                                                },
+                                                "positionId": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "subs": {
+                                "type": "object",
+                                "properties": {
+                                    "home": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "out": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string",
+                                                            "example": "95647"
+                                                        },
+                                                        "playerId": {
+                                                            "type": "string",
+                                                            "example": "95647"
+                                                        },
+                                                        "playerNameSlug": {
+                                                            "type": "string",
+                                                            "example": "his-name"
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "His Name"
+                                                        },
+                                                        "shortName": {
+                                                            "type": "string",
+                                                            "example": "H. Name"
+                                                        },
+                                                        "subPlayerId": {
+                                                            "type": "string",
+                                                            "example": "33932"
+                                                        },
+                                                        "subTime": {
+                                                            "type": "string",
+                                                            "example": "63'"
+                                                        },
+                                                        "subType": {
+                                                            "type": "string",
+                                                            "example": "FootballSubOut"
+                                                        },
+                                                        "time": {
+                                                            "type": "integer",
+                                                            "example": 63
+                                                        },
+                                                        "team": {
+                                                            "type": "string",
+                                                            "example": "HOME"
+                                                        }
+                                                    }
+                                                },
+                                                "in": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string",
+                                                            "example": "95647"
+                                                        },
+                                                        "playerId": {
+                                                            "type": "string",
+                                                            "example": "95647"
+                                                        },
+                                                        "playerNameSlug": {
+                                                            "type": "string",
+                                                            "example": "his-name"
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "His Name"
+                                                        },
+                                                        "shortName": {
+                                                            "type": "string",
+                                                            "example": "H. Name"
+                                                        },
+                                                        "subPlayerId": {
+                                                            "type": "string",
+                                                            "example": "33932"
+                                                        },
+                                                        "subTime": {
+                                                            "type": "string",
+                                                            "example": "63'"
+                                                        },
+                                                        "subType": {
+                                                            "type": "string",
+                                                            "example": "FootballSubOut"
+                                                        },
+                                                        "time": {
+                                                            "type": "integer",
+                                                            "example": 63
+                                                        },
+                                                        "team": {
+                                                            "type": "string",
+                                                            "example": "HOME"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "incidents": {
+                                "type": "object",
+                                "properties": {
+                                    "first_half": {
+                                        "type": "object",
+                                        "properties": {
+                                            "18": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "AWAY": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string",
+                                                                        "example": "His Name"
+                                                                    },
+                                                                    "shortName": {
+                                                                        "type": "string",
+                                                                        "example": "H. Name"
+                                                                    },
+                                                                    "time": {
+                                                                        "type": "string",
+                                                                        "example": "18'"
+                                                                    },
+                                                                    "id": {
+                                                                        "type": "string",
+                                                                        "example": "933061"
+                                                                    },
+                                                                    "score": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "home": {
+                                                                                "type": "string",
+                                                                                "example": "0"
+                                                                            },
+                                                                            "away": {
+                                                                                "type": "string",
+                                                                                "example": "1"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "type": {
+                                                                        "type": "string",
+                                                                        "example": "FootballGoal"
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "HOME": {
+                                                            "type": "array"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "second_half": {
+                                        "type": "integer",
+                                        "nullable": true,
+                                        "example": null
+                                    }
+                                }
+                            },
+                            "injured_suspended_players": {
+                                "type": "object",
+                                "properties": {
+                                    "homePlayers": {
+                                        "type": "array"
+                                    },
+                                    "awayPlayers": {
+                                        "type": "array"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

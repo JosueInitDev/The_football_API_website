@@ -1,0 +1,36 @@
+{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string",
+                "example": "Premier League"
+            },
+            "country": {
+                "type": "string",
+                "example": "England"
+            },
+            "country_logo": {
+                "type": "string",
+                "example": "abcdef.png"
+            },
+            "league_logo": {
+                "type": "string",
+                "example": "abcdef.png"
+            },
+            "league_key": {
+                "type": "string",
+                "example": "premier_league"
+            },
+            "color_primary": {
+                "type": "string",
+                "example": "#ffffff"
+            },
+            "color_secondary": {
+                "type": "string",
+                "example": "#ffffff"
+            }
+        }
+    }
+}
