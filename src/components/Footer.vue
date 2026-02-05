@@ -10,7 +10,7 @@ const auth = useAuthStore()
         <h2>Start building your football app today</h2>
         <a href="/register" class="cta-btn" v-if="!auth.token">Create Free Account</a>
         <footer class="text-center text-gray-500 py-4">
-            &copy; {{ new Date().getFullYear() }} {{CONSTS.app_name}}. All rights reserved. Dev by <a href="mailto:jose.init.dev@gmail.com">Darius</a>
+            &copy; {{ new Date().getFullYear() }} {{CONSTS.app_name}}. All rights reserved. Dev by <a href="mailto:contact@vetcho.org">Vetcho Teams</a>
         </footer>
     </div>
 </template>

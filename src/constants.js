@@ -5,8 +5,8 @@ export const COLORS = {
 
 export const CONSTS = {
     app_name: "The Football API",
-    app_mail: "mail@em.com",
-    api_url: "http://localhost:8000",
+    app_mail: "contact@vetcho.org",
+    api_url: "https://api-thefootballapi.vetcho.org",
     leagues: [
         {
             "name": "Premier League",

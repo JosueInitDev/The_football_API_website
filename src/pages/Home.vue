@@ -16,8 +16,8 @@ import Footer from '@/components/Footer.vue';
             <div class="hero-content">
                 <div>
                     <h1>{{CONSTS.app_name}}</h1>
-                    <p>Access fixtures, live, odds, and historical football data from leagues worldwide. Free, fast, and easy to
-                        integrate — built for football lovers.</p>
+                    <p>Access fixtures, live, odds, and historical football data from leagues worldwide. <span :style="{color: COLORS.color2}">Free, fast, and easy to
+                        integrate</span> — built for football lovers.</p>
                     <a href="/docs" target="__blank" class="cta-btn">Get Started</a>
                 </div>
             </div>

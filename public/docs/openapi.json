@@ -3,7 +3,7 @@
     "info": {
         "title": "The Football API",
         "version": "1.0.12",
-        "description": "``\nAPI Base url: https://api.the-football-api.com/``\n\n Images fetching is not limited by your plan limits. \n``\nTo get an image, fetch https://api.the-football-api.com/img/[with_image_name.png]``\n \nThe API requires a Bearer token in the Authorization header. To get access to the API, you need to <a href='register' target='_blank'>create an account</a> (free or premium plan). \n\n\n Have a question? Contact me at jose.init.dev@gmail.com",
+        "description": "``\nAPI Base url: https://api-thefootballapi.vetcho.org/``\n\n Images fetching is not limited by your plan limits. \n``\nTo get an image, fetch https://api-thefootballapi.vetcho.org/img/[the_image_name.png]``\n \nThe API requires a Bearer token in the Authorization header. To get access to the API, you need to <a href='register' target='_blank'>create an account</a> (free or premium plan). \n\n\n Have a question? Contact us at contact@vetcho.org",
         "x-logo": {
             "url": "/docs/logo.png",
             "backgroundColor": "#06060F",
