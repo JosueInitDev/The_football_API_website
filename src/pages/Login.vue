@@ -1,5 +1,5 @@
 <script setup>
-import { COLORS } from '@/constants';
+import { COLORS, CONSTS } from '@/constants';
 import Header from '../components/Header.vue'
 import Footer from '@/components/Footer.vue';
 import { ref } from 'vue'
@@ -10,8 +10,8 @@ import { useAuthStore } from '@/stores/auth'
 const router = useRouter()
 const auth = useAuthStore()
 
-const email = ref('test1@gmail.com')
-const password = ref('aaaaaa11')
+const email = ref('')
+const password = ref('')
 const loading = ref(false)
 const message = ref('')
 
@@ -31,7 +31,7 @@ async function submitLogin() {
 
     axios({
         method: 'post',
-        url: 'http://localhost:8000/users/login',
+        url: `${CONSTS.api_url}/users/login`,
         data: {
             email: email.value,
             password: password.value
@@ -53,7 +53,7 @@ async function submitLogin() {
             } else {
                 message.value = `Network error`
             }
-            console.error(err)
+            alert(err)
         })
         .finally(() => {
             loading.value = false
