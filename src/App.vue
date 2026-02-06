@@ -1,5 +1,11 @@
+<script setup>
+import Cookies from './components/Cookies.vue';
+
+</script>
+
 <template>
   <RouterView />
+  <Cookies />
 </template>
 
 <style>

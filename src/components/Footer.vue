@@ -9,6 +9,13 @@ const auth = useAuthStore()
     <div class="footer-cta" :style="{backgroundColor: COLORS.color1}">
         <h2>Start building your football app today</h2>
         <a href="/register" class="cta-btn" v-if="!auth.token">Create Free Account</a>
+        
+        <div class="links">
+            <a href="terms-of-service">Terms of service</a>
+            <a href="privacy-notice">Privacy Notice</a>
+            <a href="refund-policy">Refund Policy</a>
+        </div>
+        
         <footer class="text-center text-gray-500 py-4">
             &copy; {{ new Date().getFullYear() }} {{CONSTS.app_name}}. All rights reserved. Dev by <a href="mailto:contact@vetcho.org">Vetcho Teams</a>
         </footer>
@@ -56,5 +63,18 @@ const auth = useAuthStore()
 
 .cta-btn:hover {
     background: v-bind('COLORS.color2');
+}
+
+.links{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.links a{
+    color: #ccc;
+}
+.links a:hover{
+    color: #adadad;
 }
 </style>

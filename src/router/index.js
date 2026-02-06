@@ -9,6 +9,10 @@ import Pricing from '../pages/Pricing.vue'
 import Contact from '../pages/Contact.vue'
 import { useAuthStore } from '@/stores/auth'
 import Subscribe from '@/pages/Subscribe.vue'
+import TermsOfService from '@/pages/TermsOfService.vue'
+import Error404 from '@/pages/Error404.vue'
+import PrivacyNotice from '@/pages/PrivacyNotice.vue'
+import RefundPolicy from '@/pages/RefundPolicy.vue'
 
 const routes = [
   { path: '/', component: Home },
@@ -19,7 +23,15 @@ const routes = [
   { path: '/account', component: Account, meta: { requiresAuth: true } },
   { path: '/pricing', component: Pricing },
   { path: '/contact', component: Contact },
-  { path: '/subscribe', component: Subscribe, meta: { requiresAuth: true } }
+  { path: '/subscribe', component: Subscribe, meta: { requiresAuth: true } },
+  { path: '/terms-of-service', component: TermsOfService },
+  { path: '/privacy-notice', component: PrivacyNotice },
+  { path: '/refund-policy', component: RefundPolicy },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: Error404
+  }
 ]
 
 const router = createRouter({

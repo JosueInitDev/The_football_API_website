@@ -83,7 +83,7 @@ export const PLANS = [
     },
     {
         "name": "Premium",
-        "price": 10,
+        "price": 9,
         "custom": false,
         "content": [
             "✓ 50 requests / minute",
