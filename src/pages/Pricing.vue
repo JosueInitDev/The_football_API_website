@@ -14,7 +14,8 @@ const selectPlan = (plan)=>{
     localStorage.setItem("selectedPlan", plan.name);
 
     if (auth.token && plan.name=="Premium") {
-        router.push('subscribe');
+        // location.href = "https://thefootballapi.lemonsqueezy.com/checkout/buy/e9899cc8-554b-4b36-baf0-42906ccca97d"
+        alert("Coming soon, thank you!")
     } else {
         router.push("register");
     }

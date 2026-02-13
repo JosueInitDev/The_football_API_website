@@ -8,19 +8,21 @@ import Header from '@/components/Header.vue';
 
     <div style="padding: 20px;">
         <h3>Refund Policy - The-Football-API</h3>
-        <i>Last updated: 2026-02-06</i>
+        <i>Last updated: 2026-02-13</i>
         <p>This Refund Policy explains when refunds are available for paid plans.</p>
     
         <h2>1. Subscription Plans</h2>
-        <p>Payments for subscriptions are billed in advance. You may cancel at any time, but access continues until the end of the billing period. Except as stated below, all subscriptions are final and non-refundable and may not be canceled.</p>
+        <p>Payments for subscriptions are billed in advance. You may cancel at any time, but access continues until the end of the billing period. Except as stated below, all subscriptions are final and non-refundable and may not be canceled (except in special cases detailed in section 2).</p>
 
         <h2>2. Refund Eligibility</h2>
-        <p>Refunds may be issued only when:</p>
+        <p>We apply a 14-day refund policy for the first payment of a new subscription. This policy applies only to the initial billing and does not apply to any subsequent renewals. Refunds are limited to one per account or payment method to prevent abuse.</p>
+        <p>Other types of refunds may be issued only when:</p>
         <ul>
             <li>You were charged incorrectly.</li>
             <li>The Service was unavailable for an extended period.</li>
             <li>Required by law.</li>
         </ul>
+        <p>All refunds are at our discretion, except where required by law.</p>
 
         <h2>3. Non-Refundable Cases</h2>
         <p>We generally do not refund:</p>
