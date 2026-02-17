@@ -1,14 +1,187 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Football API</title>
-    <meta name="description" content="Access fixtures, live, odds, and historical football data from leagues worldwide. Free, fast, and easy to integrate — built for football lovers.">
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Football API — Coming Soon</title>
+    <meta name="description" content="Access fixtures, live, odds, and historical football data from leagues worldwide. Free, fast, and easy to integrate — built for football lovers">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #22ff88;
+            --dark: #050a10;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background:
+                linear-gradient(rgba(5, 10, 16, .85), rgba(85, 11, 42, 0.9)),
+                url("the-football-api-home.png") center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 80%;
+            padding: 60px;
+            text-align: center;
+            backdrop-filter: blur(6px);
+            background: rgba(0, 0, 0, .35);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, .05);
+            box-shadow: 0 0 80px rgba(0, 0, 0, .8);
+        }
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+        }
+
+        .logo {
+            font-size: 22px;
+            letter-spacing: 5px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        h1 span {
+            background: linear-gradient(90deg, var(--accent), #00c6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            margin-top: 20px;
+            font-size: 1.15rem;
+            opacity: .85;
+            max-width: 650px;
+            margin-inline: auto;
+        }
+
+        .notify-box {
+            margin-top: 45px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .notify-box input {
+            padding: 16px 20px;
+            width: 280px;
+            border-radius: 12px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, .07);
+            color: white;
+            font-size: 15px;
+        }
+
+        .notify-box input::placeholder {
+            color: #bbb;
+        }
+
+        .notify-box button {
+            padding: 16px 32px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--accent), #00c6ff);
+            color: black;
+            transition: .3s;
+        }
+
+        .notify-box button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(34, 255, 136, .6);
+        }
+
+        .features {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .feature {
+            padding: 10px;
+            background: rgba(255, 255, 255, .04);
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, .05);
+        }
+
+        .feature h3 {
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        footer {
+            margin-top: 50px;
+            opacity: .5;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">THE FOOTBALL API</div>
+
+        <h1>Coming <span>Soon</span><br /></h1>
+
+        <p class="subtitle">
+            Access fixtures, live, odds, and historical football data from leagues worldwide. Free, fast, and easy to integrate — built for football lovers.
+        </p>
+
+        <div class="features" style="display: flex; flex-direction: row; overflow-x: auto; padding-bottom: 30px;">
+            <div class="feature" style="min-width: 200px;">
+                <h3>⚡ Fixtures</h3>
+                <p style="font-size: 13px;">Upcoming and Real-time fixtures.</p>
+            </div>
+            <div class="feature" style="min-width: 200px;">
+                <h3>⚡ Live Data</h3>
+                <p style="font-size: 13px;">Real-time scores.</p>
+            </div>
+            <div class="feature" style="min-width: 200px;">
+                <h3>🎯 Odds</h3>
+                <p style="font-size: 13px;">Probabilities & odds.</p>
+            </div>
+            <div class="feature" style="min-width: 200px;">
+                <h3>📊 Advanced Stats</h3>
+                <p style="font-size: 13px;">xG, form, H2H, trends.</p>
+            </div>
+            <div class="feature" style="min-width: 200px;">
+                <h3>🔌 Developer Ready</h3>
+                <p style="font-size: 13px;">REST + JSON endpoints.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
 </html>
